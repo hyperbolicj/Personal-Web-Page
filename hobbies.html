@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<title>Sophie Stehlik</title>
+	<link href="styles//Styles.css" rel="stylesheet" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="scripts//script.js"></script>
+</head>
+	<body ng-app="myApp" ng-controller="MainController">
+		<header>
+			<h1>Sophie Stehlik - Hobbies</h1>
+		</header>
+
+		<div class="sidebar"> 
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="#">Hobbies</a></li>
+					<li><a href="contact.html">Contact me</a></li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="content"> 
+			<div>
+				<button ng-click="showDWS()">Drawings</button>
+				<button ng-click="showSWP()">Sewing</button>
+				<div ng-if="title == 'sewing'">
+					<p>
+						<h3>Sewing projects</h3>
+					</p>
+					<div ng-repeat="element in swproj" class="mediumcontainer">
+						<p>
+							<strong>{{ element.title }}</strong>
+							<img ng-src="{{ element.srcname }}">
+							{{ element.date | date }}
+						</p>
+					</div>
+				</div>
+				<div ng-if="title == 'drawings'">
+					<p> 
+						<h3>Personal drawings</h3> 
+					</p>
+					<div ng-repeat="element in drawings" class="mediumcontainer">
+						<p>
+							<strong>{{ element.title }}</strong>
+							<img ng-src="{{ element.srcname }}">
+							{{ element.date | date }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<p>
+				<strong>Disclaimer:</strong>
+				Outside basic factual information all opinions in what ever medium they take as 
+				presented on this site are my own and do not necessarily reflect the position or
+				values of any past, present, or future employers of mine.
+			</p>
+			Copyright:2020 Sophie Stehlik
+		</footer>
+	</body>
+</html>
