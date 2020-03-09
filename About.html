@@ -37,10 +37,11 @@
 							<ul ng-repeat="element3 in element2.description">
 								<li>
 									{{ element3.acomplishment }}
-									<ul><li>from: <em>{{element3.dateStart | date}}</em> to 
-										<span ng-if="(element3.dateEnd | date) != 'Dec 31, 1899'"><em>{{element3.dateEnd | date}}</em></span>
-										<span ng-if="(element3.dateEnd | date) == 'Dec 31, 1899'"><em>present</em></span>
-									</li></ul>
+									<span ng-if="(element3.dateStart | date) != 'Dec 31, 1899'">
+										<ul>
+											<li>from: <em>{{element3.dateStart | date}}</em> to <span ng-if="(element3.dateEnd | date) != 'Dec 31, 1899'"><em>{{element3.dateEnd | date}}</em></span><span ng-if="(element3.dateEnd | date) == 'Dec 31, 1899'"><em>present</em></span></li>
+										</ul>
+									</span>
 								</li>
 							</ul>
 						</li>

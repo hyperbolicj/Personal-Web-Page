@@ -6,7 +6,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 	<script src="scripts//script.js"></script>
 </head>
-	<body>
+	<body ng-app="myApp" ng-controller="MainController">
 		<header>
 			<h1>Sophie Stehlik - Projects</h1>
 		</header>
@@ -23,8 +23,22 @@
 			</nav>
 		</div>
 
-		<div class="content"> 
-			
+		<div class="content">
+			<p>
+				<div ng-repeat="element in projectInfo">
+					<strong>{{element.name}}</strong><br/>
+					<ul>
+						<li>{{element.description}}</li>
+						<li><em>{{element.details}}</em></li>
+						<span ng-if="(element.date | date) != 'Dec 31, 1899'">
+							<li>Date: {{element.date | date}}</li>
+						</span>
+						<span ng-if="element.link != ''">
+							<li><a href={{element.link}}>link</a></li>
+						</span>
+					</ul><br/>
+				</div>
+			</p>
 		</div>
 		<footer>
 			<p>
